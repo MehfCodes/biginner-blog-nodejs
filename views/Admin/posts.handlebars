@@ -1,0 +1,51 @@
+<h1>Posts</h1>
+<br />
+
+{{#if edit_msg}}
+<div class="alert alert-success">
+  {{edit_msg}}
+</div>
+{{/if}}
+
+{{#if seccess_msg}}
+<div class="alert alert-success">
+  {{seccess_msg}}
+</div>
+{{/if}}
+
+{{#if delete_msg}}
+<div class="alert alert-danger">
+  {{delete_msg}}
+</div>
+{{/if}}
+<br />
+<table class="table table-bordered col-12">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Status</th>
+      <th scope="col">Img</th>
+      <th scope="col">Action Update</th>
+      <th scope="col">Action Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each posts}}
+    <tr>
+      <th>{{id}}</th>
+      <td>{{title}}</td>
+      <td>{{status}}</td>
+      <td><img src="/Upload/{{file}}" style="height: 100px" class="image-responsive"/></td>
+      <td>
+        <a href="/admin/posts/edit/{{id}}" class="btn btn-primary">Edit</a>
+      </td>
+      <td>
+        <form action="/admin/posts/delete/{{id}}?_method=DELETE" method="POST">
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

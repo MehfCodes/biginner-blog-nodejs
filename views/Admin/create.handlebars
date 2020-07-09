@@ -1,0 +1,49 @@
+<h1>Create Post</h1>
+<br />
+
+
+
+  {{#each error}}
+  
+    <div class="alert alert-danger">
+      {{msg}}
+      
+    </div>
+  
+{{/each}}
+<br />
+
+<form action="/admin/create" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" name="title" id="title" placeholder="please enter post title ...">
+  </div>
+  <div class="form-group">
+    <label for="status">status</label>
+    <select class="form-control" id="status" name="status">
+      <option>public</option>
+      <option>private</option>
+      <option>draft</option>
+      
+    </select>
+  </div>
+   <div class="form-group">
+    <label for="cg">category</label>
+    <select class="form-control" id="cg" name="category">
+      {{#each found}}
+        <option value="{{id}}">{{name}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div class="form-group">
+    
+    <input name="file" type="file" id="filename" />
+  </div>
+  <div class="form-group">
+    <label for="txtarea"> textarea</label>
+    <textarea class="form-control" id="txtarea" rows="3" name="text"></textarea>
+  </div>
+  <div class="form-group">
+   <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>

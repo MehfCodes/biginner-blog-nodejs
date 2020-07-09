@@ -1,0 +1,34 @@
+{{#each found}}
+<div class="container">
+    <div class="row" >
+
+      <!-- Post Content Column -->
+      <div class="col-lg-8">
+    
+        <!-- Title -->
+        <h1 class="mt-4">{{title}}</h1>
+
+        <!-- Author -->
+        
+        <!-- Date/Time -->
+
+        <p>Posted on {{postDate date 'MMMM Do YYYY'}}</p>
+
+        <hr>
+
+        <!-- Preview Image -->
+        <img class="img-fluid rounded" src="/Upload/{{file}}" alt="">
+
+        <br />
+        <br />
+
+        <!-- Post Content -->
+        <p class="lead">{{text}}</p>
+
+        <a class="btn btn-primary" href="/home/post/{{id}}">Read More</a>
+        <hr>
+
+</div>
+</div>
+</div>
+{{/each}}

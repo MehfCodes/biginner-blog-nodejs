@@ -1,0 +1,41 @@
+<form action="/admin/create-category" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" name="name" id="title" placeholder="please enter post title ...">
+  </div>
+ 
+  <div class="form-group">
+   <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+
+<div>
+    <table class="table table-bordered col-12">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each found}}
+    <tr>
+      <th>{{id}}</th>
+      <td>{{name}}</td>
+      <td>
+        <form action="/admin/create-category/edit/{{id}}" method="GET">
+          <button type="submit" class="btn btn-primary">Edit</button>
+        </form>
+      </td>
+      <td>
+        <form action="/admin/create-category/delete/{{id}}?_method=DELETE" method="POST">
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
